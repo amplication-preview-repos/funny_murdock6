@@ -1,4 +1,7 @@
 import { Module } from "@nestjs/common";
+import { RequestLogModule } from "./requestLog/requestLog.module";
+import { UrlModule } from "./url/url.module";
+import { RequestParameterModule } from "./requestParameter/requestParameter.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -11,6 +14,9 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 @Module({
   controllers: [],
   imports: [
+    RequestLogModule,
+    UrlModule,
+    RequestParameterModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

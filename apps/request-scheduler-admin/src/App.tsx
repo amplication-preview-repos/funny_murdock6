@@ -5,6 +5,18 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
+import { RequestLogList } from "./requestLog/RequestLogList";
+import { RequestLogCreate } from "./requestLog/RequestLogCreate";
+import { RequestLogEdit } from "./requestLog/RequestLogEdit";
+import { RequestLogShow } from "./requestLog/RequestLogShow";
+import { UrlList } from "./url/UrlList";
+import { UrlCreate } from "./url/UrlCreate";
+import { UrlEdit } from "./url/UrlEdit";
+import { UrlShow } from "./url/UrlShow";
+import { RequestParameterList } from "./requestParameter/RequestParameterList";
+import { RequestParameterCreate } from "./requestParameter/RequestParameterCreate";
+import { RequestParameterEdit } from "./requestParameter/RequestParameterEdit";
+import { RequestParameterShow } from "./requestParameter/RequestParameterShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -30,7 +42,29 @@ const App = (): React.ReactElement => {
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}
-      ></Admin>
+      >
+        <Resource
+          name="RequestLog"
+          list={RequestLogList}
+          edit={RequestLogEdit}
+          create={RequestLogCreate}
+          show={RequestLogShow}
+        />
+        <Resource
+          name="Url"
+          list={UrlList}
+          edit={UrlEdit}
+          create={UrlCreate}
+          show={UrlShow}
+        />
+        <Resource
+          name="RequestParameter"
+          list={RequestParameterList}
+          edit={RequestParameterEdit}
+          create={RequestParameterCreate}
+          show={RequestParameterShow}
+        />
+      </Admin>
     </div>
   );
 };
